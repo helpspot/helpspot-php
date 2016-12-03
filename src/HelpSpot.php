@@ -11,7 +11,8 @@ class HelpSpot
     private $username = '';
     private $password = '';
     private $data = [];
-    private $error = false;
+    private $errors = false;
+    private $guzzle;
 
     /**
      * Create a new Skeleton Instance
@@ -21,6 +22,8 @@ class HelpSpot
         $this->endpoint = $endpoint . '/api/index.php?'; //According to guzzle docs we shouldn't need this ? but doesn't work without it.
         $this->username = $username;
         $this->password = $password;
+
+        $this->guzzle = new \GuzzleHttp\Client();
     }
 
     /**
@@ -40,19 +43,6 @@ class HelpSpot
     }
 
     /**
-     * Helper for uploading documents
-     */
-    function upload($request_id, $name, $mime, $body)
-    {
-        // upload as sep operation (messes up history) or just adds to data array?
-
-        //base64 the body
-        //File1_sFilename
-        //File1_sFileMimeType
-        //File1_bFileBody
-    }
-
-    /**
      * Handles the HTTP call to HelpSpot
      */
     function request($http, $method, $data=[])
@@ -60,22 +50,18 @@ class HelpSpot
         $this->data = $data;
         $this->data['method'] = $method;
 
-        $client = new \GuzzleHttp\Client();
-
         try{
-            $result = $client->request(
-                    $http,
-                    $this->endpoint . $method,
+
+            $result = $this->guzzle->request($http, $this->endpoint,
                     [
                       'auth' => [$this->username, $this->password],
                       'query' => $http == 'get' ?: $this->data,
                       'form_params' => $http == 'post' ?: $this->data
                     ]
             );
-        } catch (ClientException $e) {
-            $this->error = true;
 
-            return new \SimpleXMLElement($e->getResponse()->getBody());
+        } catch (ClientException $e) {
+            return $this->errors = new \SimpleXMLElement($e->getResponse()->getBody());
         }
 
         return new \SimpleXMLElement($result->getBody());
@@ -86,6 +72,6 @@ class HelpSpot
      */
     function hasError()
     {
-        return $this->error;
+        return $this->errors ? true : false;
     }
 }

@@ -1,14 +1,12 @@
-# HelpSpot
+# HelpSpot Help Desk Software
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
-[![Total Downloads][ico-downloads]][link-downloads]
+This is the PHP SDK to the HelpSpot API. The SDK can work with both the public and private (staff) API.
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+Please read the full documentation for each API method here:
+
+* [API Overview](https://support.helpspot.com/index.php?pg=kb.page&id=161)
+* [Public API Methods](https://support.helpspot.com/index.php?pg=kb.page&id=163)
+* [Private API Methods](https://support.helpspot.com/index.php?pg=kb.page&id=164)
 
 ## Install
 
@@ -25,16 +23,6 @@ $skeleton = new HelpSpot\HelpSpot();
 echo $skeleton->echoPhrase('Hello, League!');
 ```
 
-## Change log
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Testing
-
-``` bash
-$ composer test
-```
-
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
@@ -45,24 +33,8 @@ If you discover any security related issues, please email ianlandsman@userscape.
 
 ## Credits
 
-- [Ian Landsman][link-author]
-- [All Contributors][link-contributors]
+- Ian Landsman
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-[ico-version]: https://img.shields.io/packagist/v/HelpSpot/HelpSpot.svg?style=flat-square
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/HelpSpot/HelpSpot/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/HelpSpot/HelpSpot.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/HelpSpot/HelpSpot.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/HelpSpot/HelpSpot.svg?style=flat-square
-
-[link-packagist]: https://packagist.org/packages/HelpSpot/HelpSpot
-[link-travis]: https://travis-ci.org/HelpSpot/HelpSpot
-[link-scrutinizer]: https://scrutinizer-ci.com/g/HelpSpot/HelpSpot/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/HelpSpot/HelpSpot
-[link-downloads]: https://packagist.org/packages/HelpSpot/HelpSpot
-[link-author]: https://github.com/ianlandsman
-[link-contributors]: ../../contributors
