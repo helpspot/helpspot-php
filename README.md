@@ -18,9 +18,52 @@ $ composer require HelpSpot/HelpSpot
 
 ## Usage
 
+### Create a request
+
 ``` php
-$skeleton = new HelpSpot\HelpSpot();
-echo $skeleton->echoPhrase('Hello, League!');
+require_once "vendor/autoload.php";
+
+use HelpSpot\HelpSpot\HelpSpot;
+
+$helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
+
+$helpspot->post('private.request.create', [
+    'sEmail' => 'customer@company.com',
+    'tNote' => 'testing',
+    'xCategory' => 1
+]);
+```
+
+### Update a request
+
+``` php
+require_once "vendor/autoload.php";
+
+use HelpSpot\HelpSpot\HelpSpot;
+
+$helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
+
+$helpspot->post('private.request.update', [
+    'xRequest' => 12400,
+    'fNoteType' => 1, // A public note
+    'tNote' => 'Update the request with this note.',
+]);
+```
+
+### Get a request
+
+``` php
+require_once "vendor/autoload.php";
+
+use HelpSpot\HelpSpot\HelpSpot;
+
+$helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
+
+$request = $helpspot->get('private.request.get', [
+    'xRequest' => 12400
+]);
+
+echo $request->sEmail;
 ```
 
 ## Contributing
@@ -33,7 +76,7 @@ If you discover any security related issues, please email ianlandsman@userscape.
 
 ## Credits
 
-- Ian Landsman
+- UserScape
 
 ## License
 
