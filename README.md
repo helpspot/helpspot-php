@@ -16,15 +16,24 @@ Via Composer
 $ composer require HelpSpot/HelpSpot
 ```
 
-## Usage
+## Loading
 
-### Create a request
+If your framework handles autoloading you can simply use a **use** statement at the top of your php
+file to access HelpSpot. If it doesn't, you can load in HelpSpot with the require statement shown below plus using the **use** statement at the top of the file you want to access HelpSpot in.
 
-``` php
+```
 require_once "vendor/autoload.php";
 
 use HelpSpot\HelpSpot\HelpSpot;
 
+// Access HelpSpot in your functions and methods in this file
+```
+
+## Usage
+
+### Create a request
+
+```
 $helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $helpspot->post('private.request.create', [
@@ -36,11 +45,7 @@ $helpspot->post('private.request.create', [
 
 ### Update a request
 
-``` php
-require_once "vendor/autoload.php";
-
-use HelpSpot\HelpSpot\HelpSpot;
-
+```
 $helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $helpspot->post('private.request.update', [
@@ -52,11 +57,7 @@ $helpspot->post('private.request.update', [
 
 ### Get a request
 
-``` php
-require_once "vendor/autoload.php";
-
-use HelpSpot\HelpSpot\HelpSpot;
-
+```
 $helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $request = $helpspot->get('private.request.get', [
@@ -66,17 +67,35 @@ $request = $helpspot->get('private.request.get', [
 echo $request->sEmail;
 ```
 
-## Contributing
+### Checking for errors
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+```
+$helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
+
+$request = $helpspot->get('private.request.get', [
+    'xRequest' => 12400
+]);
+
+if($helpspot->hasError())
+{
+    foreach($helpspot->getErrors() as $error)
+    {
+        echo $error->id .' '. $error->description;
+    }
+}
+else
+{
+    echo $request->sEmail;
+}
+```
 
 ## Security
 
-If you discover any security related issues, please email ianlandsman@userscape.com instead of using the issue tracker.
+If you discover any security related issues, please email customer.service@userscape.com instead of using the issue tracker.
 
 ## Credits
 
-- UserScape
+- UserScape Inc.
 
 ## License
 

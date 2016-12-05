@@ -7,11 +7,11 @@ use GuzzleHttp\Exception\ClientException;
 class HelpSpot
 {
 
+    private $errors = false;
     private $endpoint = '';
     private $username = '';
     private $password = '';
     private $data = [];
-    private $errors = false;
     private $guzzle;
 
     /**
@@ -73,5 +73,13 @@ class HelpSpot
     function hasError()
     {
         return $this->errors ? true : false;
+    }
+
+    /**
+     * Return the error array
+     */
+    function getErrors()
+    {
+        return $this->errors;
     }
 }
