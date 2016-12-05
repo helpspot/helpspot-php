@@ -34,7 +34,7 @@ use helpspot\helpspot\helpspot;
 ### Create a request using the private api
 
 ```php
-$helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
+$helpspot = new helpspot('https://company.helpspot.com', 'user@example.com', 'password');
 
 $helpspot->post('private.request.create', [
     'sEmail' => 'customer@company.com',
@@ -46,7 +46,7 @@ $helpspot->post('private.request.create', [
 ### Update a request using the private api
 
 ```php
-$helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
+$helpspot = new helpspot('https://company.helpspot.com', 'user@example.com', 'password');
 
 $helpspot->post('private.request.update', [
     'xRequest' => 12400,
@@ -58,7 +58,7 @@ $helpspot->post('private.request.update', [
 ### Get a request using the private api
 
 ```php
-$helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
+$helpspot = new helpspot('https://company.helpspot.com', 'user@example.com', 'password');
 
 $request = $helpspot->get('private.request.get', [
     'xRequest' => 12400
@@ -70,7 +70,7 @@ echo $request->sEmail;
 ### Create a request using the public api
 
 ```php
-$helpspot = new helpspot('https://company.helpspot.com/');
+$helpspot = new helpspot('https://company.helpspot.com');
 
 $helpspot->post('request.create', [
     'sEmail' => 'customer@company.com',
@@ -81,7 +81,7 @@ $helpspot->post('request.create', [
 ### Checking for errors
 
 ```php
-$helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
+$helpspot = new helpspot('https://company.helpspot.com', 'user@example.com', 'password');
 
 $request = $helpspot->get('private.request.get', [
     'xRequest' => 12400
