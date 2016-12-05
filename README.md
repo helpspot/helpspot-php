@@ -21,7 +21,7 @@ $ composer require helspot/helpspot
 If your framework handles autoloading you can simply use a **use** statement at the top of your php
 file to access HelpSpot. If it doesn't, you can load in HelpSpot with the require statement shown below plus using the **use** statement at the top of the file you want to access HelpSpot in.
 
-```
+```php
 require_once "vendor/autoload.php";
 
 use helpspot\helpspot\helpspot;
@@ -33,7 +33,7 @@ use helpspot\helpspot\helpspot;
 
 ### Create a request
 
-```
+```php
 $helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $helpspot->post('private.request.create', [
@@ -45,7 +45,7 @@ $helpspot->post('private.request.create', [
 
 ### Update a request
 
-```
+```php
 $helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $helpspot->post('private.request.update', [
@@ -57,7 +57,7 @@ $helpspot->post('private.request.update', [
 
 ### Get a request
 
-```
+```php
 $helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $request = $helpspot->get('private.request.get', [
@@ -69,7 +69,7 @@ echo $request->sEmail;
 
 ### Checking for errors
 
-```
+```php
 $helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $request = $helpspot->get('private.request.get', [
