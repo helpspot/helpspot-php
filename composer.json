@@ -1,5 +1,5 @@
 {
-    "name": "HelpSpot/HelpSpot",
+    "name": "helpspot/helpspot",
     "type": "library",
     "description": "A PHP wrapper for the HelpSpot help desk api",
     "keywords": [
@@ -7,7 +7,7 @@
         "help desk software",
         "ticket software"
     ],
-    "homepage": "https://github.com/HelpSpot/HelpSpot",
+    "homepage": "https://github.com/helpspot/helpspot-php",
     "license": "MIT",
     "authors": [
         {
@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "HelpSpot\\HelpSpot\\": "src"
+            "helpspot\\helpspot\\": "src"
         }
     },
     "extra": {

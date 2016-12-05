@@ -13,7 +13,7 @@ Please read the full documentation for each API method here:
 Via Composer
 
 ``` bash
-$ composer require HelpSpot/HelpSpot
+$ composer require helspot/helpspot
 ```
 
 ## Loading
@@ -24,7 +24,7 @@ file to access HelpSpot. If it doesn't, you can load in HelpSpot with the requir
 ```
 require_once "vendor/autoload.php";
 
-use HelpSpot\HelpSpot\HelpSpot;
+use helpspot\helpspot\helpspot;
 
 // Access HelpSpot in your functions and methods in this file
 ```
@@ -34,7 +34,7 @@ use HelpSpot\HelpSpot\HelpSpot;
 ### Create a request
 
 ```
-$helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
+$helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $helpspot->post('private.request.create', [
     'sEmail' => 'customer@company.com',
@@ -46,7 +46,7 @@ $helpspot->post('private.request.create', [
 ### Update a request
 
 ```
-$helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
+$helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $helpspot->post('private.request.update', [
     'xRequest' => 12400,
@@ -58,7 +58,7 @@ $helpspot->post('private.request.update', [
 ### Get a request
 
 ```
-$helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
+$helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $request = $helpspot->get('private.request.get', [
     'xRequest' => 12400
@@ -70,7 +70,7 @@ echo $request->sEmail;
 ### Checking for errors
 
 ```
-$helpspot = new HelpSpot('https://company.helpspot.com/', 'user@example.com', 'password');
+$helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
 
 $request = $helpspot->get('private.request.get', [
     'xRequest' => 12400

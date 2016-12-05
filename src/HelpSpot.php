@@ -1,10 +1,10 @@
 <?php
 
-namespace HelpSpot\HelpSpot;
+namespace helpspot\helpspot;
 
 use GuzzleHttp\Exception\ClientException;
 
-class HelpSpot
+class helpspot
 {
 
     private $errors = false;
