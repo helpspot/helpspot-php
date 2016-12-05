@@ -5,8 +5,8 @@ This is the PHP SDK to the HelpSpot API. The SDK can work with both the public a
 Please read the full documentation for each API method here:
 
 * [API Overview](https://support.helpspot.com/index.php?pg=kb.page&id=161)
-* [Public API Methods](https://support.helpspot.com/index.php?pg=kb.page&id=163)
-* [Private API Methods](https://support.helpspot.com/index.php?pg=kb.page&id=164)
+* [Public API Methods](https://support.helpspot.com/index.php?pg=kb.page&id=163) - Access as the customer
+* [Private API Methods](https://support.helpspot.com/index.php?pg=kb.page&id=164) - Access as a staff person with a HelpSpot license
 
 ## Install
 
@@ -31,7 +31,7 @@ use helpspot\helpspot\helpspot;
 
 ## Usage
 
-### Create a request
+### Create a request using the private api
 
 ```php
 $helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
@@ -43,7 +43,7 @@ $helpspot->post('private.request.create', [
 ]);
 ```
 
-### Update a request
+### Update a request using the private api
 
 ```php
 $helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
@@ -55,7 +55,7 @@ $helpspot->post('private.request.update', [
 ]);
 ```
 
-### Get a request
+### Get a request using the private api
 
 ```php
 $helpspot = new helpspot('https://company.helpspot.com/', 'user@example.com', 'password');
@@ -65,6 +65,17 @@ $request = $helpspot->get('private.request.get', [
 ]);
 
 echo $request->sEmail;
+```
+
+### Create a request using the public api
+
+```php
+$helpspot = new helpspot('https://company.helpspot.com/');
+
+$helpspot->post('request.create', [
+    'sEmail' => 'customer@company.com',
+    'tNote' => 'testing'
+]);
 ```
 
 ### Checking for errors
