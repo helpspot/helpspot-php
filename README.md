@@ -13,7 +13,7 @@ Please read the full documentation for each API method here:
 Via Composer
 
 ``` bash
-$ composer require helspot/helpspot
+$ composer require helpspot/helpspot
 ```
 
 ## Loading
