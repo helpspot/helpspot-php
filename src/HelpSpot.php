@@ -55,8 +55,8 @@ class helpspot
             $result = $this->guzzle->request($http, $this->endpoint,
                     [
                       'auth' => [$this->username, $this->password],
-                      'query' => $http == 'get' ?: $this->data,
-                      'form_params' => $http == 'post' ?: $this->data
+                      'query' => strtolower($http) == 'get' ? $this->data : null,
+                      'form_params' => strtolower($http) == 'post' ? $this->data : null,
                     ]
             );
 
