@@ -31,6 +31,17 @@ use helpspot\helpspot\helpspot;
 
 ## Usage
 
+### Authentication
+You can authenticate either via an api key or a username and password combination. The API key is now the recommended authentication method and is the only method available if the HelpSpot instance uses SAML or LDAP authentication.
+
+API Key:
+```php
+$helpspot = new helpspot('https://company.helpspot.com', '', '','apikey');
+```
+Username Password:
+```php
+$helpspot = new helpspot('https://company.helpspot.com', 'user@example.com', 'password');
+```
 ### Create a request using the private api
 
 ```php
