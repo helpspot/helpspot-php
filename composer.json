@@ -18,9 +18,9 @@
         }
     ],
     "require": {
-        "php": ">=7.0",
+        "php": ">=5.5",
         "ext-simplexml": "*",
-        "guzzlehttp/guzzle": "^7.0"
+        "guzzlehttp/guzzle": "^6.2 || ^7.0"
     },
     "autoload": {
         "psr-4": {
